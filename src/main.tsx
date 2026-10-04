@@ -1,10 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import Title from './components/Title/Title.tsx'
+import Challenge from './components/Challenge/Challenge.tsx'
+import Letter from './components/Letter/Letter.tsx'
+import Media from './components/Media/Media.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Title />
+    <Letter />
+    <Media />
+    <Challenge />
   </StrictMode>,
 )
