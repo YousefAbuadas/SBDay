@@ -5,10 +5,13 @@ import './styles.css'
 export default function Media() {
     return(
         <section>
-            <h2>{vid.description}</h2>
-            <video id="media-video" controls>
-                <source src={vid.media} type="video/mp4"/>
-            </video>
+            <h2>Click the present for a surprise!</h2>
+            <iframe
+                id="media-video"
+                src={vid.media}
+                title={vid.description}
+                allowFullScreen
+            />
         </section>
     );
-}
+};

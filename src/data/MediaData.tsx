@@ -1,12 +1,10 @@
-import birthdayVideo from "../assets/saba_video.mp4"
-
 interface MediaData {
     media: string;
     description: string;
 };
 
 export const vid: MediaData = {
-    media: birthdayVideo,
+    media: "https://www.youtube.com/embed/IlrPQsKwHkM",
     description: "insert description of video here",
 };
 
