@@ -1,3 +1,69 @@
-#ind {
-  text-indent: 2em;
+.letter-paper {
+  --line-height: 30px;
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 720px);
+  aspect-ratio: 332 / 410;
+  margin: 32px auto;
+  padding: 62px 34px 64px 10%;
+  color: #292b2d;
+  font: 17px/var(--line-height) Arial, Helvetica, sans-serif;
+  background-color: #fffefa;
+  background-image:
+    linear-gradient(to right, transparent calc(14% - 1px), rgba(192, 91, 96, .53) 14%, transparent calc(14% + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 28px, rgba(108, 179, 206, .45) 29px, transparent 30px);
+  box-shadow: 0 2px 12px rgba(37, 48, 54, .18);
+}
+
+.letter-paper__content {
+  position: relative;
+  z-index: 1;
+}
+
+.letter-paper h2,
+.letter-paper p {
+  margin: 0;
+  font: inherit;
+}
+
+.letter-paper__body {
+  text-indent: 1.5em;
+  white-space: pre-line;
+}
+
+.letter-paper .letter-paper__closing {
+  margin-top: var(--line-height);
+}
+
+.letter-paper__hole {
+  position: absolute;
+  left: 5.5%;
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #f3f4f2;
+  box-shadow: inset 1px 1px 3px rgba(68, 83, 88, .38), 1px 1px 2px rgba(68, 83, 88, .15);
+  transform: translate(-50%, -50%);
+}
+
+.letter-paper__hole--top { top: 10%; }
+.letter-paper__hole--middle { top: 50%; }
+.letter-paper__hole--bottom { top: 90%; }
+
+@media (max-width: 560px) {
+  .letter-paper {
+    --line-height: 25px;
+    margin: 20px auto;
+    padding: 52px 18px 50px 18%;
+    font-size: 14px;
+    background-image:
+      linear-gradient(to right, transparent calc(14% - 1px), rgba(192, 91, 96, .53) 14%, transparent calc(14% + 1px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent 23px, rgba(108, 179, 206, .45) 24px, transparent 25px);
+  }
+
+  .letter-paper__hole {
+    width: 13px;
+    height: 13px;
+  }
 }
