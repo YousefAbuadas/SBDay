@@ -1,6 +1,35 @@
+@font-face {
+  font-family: "Chewy";
+  src: url("./Chewy-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .title-header {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.title-header h1 {
+  margin: 0;
+  font-family: "Chewy", cursive;
+  font-size: clamp(3.5rem, 19vw, 7.25rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.title-header h1 span {
+  display: block;
+}
+
+.title-header h1 span:first-child {
+  color: #f65098;
+}
+
+.title-header h1 span:last-child {
+  color: #ff8ebd;
 }
