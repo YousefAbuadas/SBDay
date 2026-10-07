@@ -1,16 +1,26 @@
+.letter-section {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 32px auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
 .letter-paper {
   --line-height: 30px;
+  --margin-line: 14%;
+  --text-gutter: clamp(12px, 4vw, 34px);
   position: relative;
   box-sizing: border-box;
   width: min(100%, 720px);
   aspect-ratio: 332 / 410;
-  margin: 32px auto;
-  padding: 62px 34px 64px 10%;
+  margin: 0 auto;
+  padding-block: 62px 64px;
   color: #292b2d;
   font: 17px/var(--line-height) Arial, Helvetica, sans-serif;
+  text-align: left;
   background-color: #fffefa;
   background-image:
-    linear-gradient(to right, transparent calc(14% - 1px), rgba(192, 91, 96, .53) 14%, transparent calc(14% + 1px)),
+    linear-gradient(to right, transparent calc(var(--margin-line) - 1px), rgba(192, 91, 96, .53) var(--margin-line), transparent calc(var(--margin-line) + 1px)),
     repeating-linear-gradient(to bottom, transparent 0, transparent 28px, rgba(108, 179, 206, .45) 29px, transparent 30px);
   box-shadow: 0 2px 12px rgba(37, 48, 54, .18);
 }
@@ -18,6 +28,9 @@
 .letter-paper__content {
   position: relative;
   z-index: 1;
+  /* Measure the text inset from the paper, matching its red margin line. */
+  margin-inline: calc(var(--margin-line) + var(--text-gutter)) var(--text-gutter);
+  overflow-wrap: anywhere;
 }
 
 .letter-paper h2,
@@ -27,7 +40,7 @@
 }
 
 .letter-paper__body {
-  text-indent: 1.5em;
+  text-indent: 0;
   white-space: pre-line;
 }
 
@@ -52,13 +65,16 @@
 .letter-paper__hole--bottom { top: 90%; }
 
 @media (max-width: 560px) {
+  .letter-section {
+    margin-block: 20px;
+  }
+
   .letter-paper {
     --line-height: 25px;
-    margin: 20px auto;
-    padding: 52px 18px 50px 18%;
+    padding-block: 52px 50px;
     font-size: 14px;
     background-image:
-      linear-gradient(to right, transparent calc(14% - 1px), rgba(192, 91, 96, .53) 14%, transparent calc(14% + 1px)),
+      linear-gradient(to right, transparent calc(var(--margin-line) - 1px), rgba(192, 91, 96, .53) var(--margin-line), transparent calc(var(--margin-line) + 1px)),
       repeating-linear-gradient(to bottom, transparent 0, transparent 23px, rgba(108, 179, 206, .45) 24px, transparent 25px);
   }
 

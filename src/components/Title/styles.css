@@ -26,10 +26,6 @@
   display: block;
 }
 
-.title-header h1 span:first-child {
+.title-header h1 span{
   color: #f65098;
-}
-
-.title-header h1 span:last-child {
-  color: #ff8ebd;
 }

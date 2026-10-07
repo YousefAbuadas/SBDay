@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f3abc2;
+  /* Fine woven texture over staggered rows of white polka dots. */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgb(255 255 255 / 7%) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(185 49 87 / 4%) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(circle, #fffafd 9px, transparent 9.5px),
+    radial-gradient(circle, #fffafd 9px, transparent 9.5px);
+  background-size: 3px 3px, 3px 3px, 140px 140px, 140px 140px;
+  background-position: 0 0, 0 0, 4px -5px, 74px 65px;
+  color: #b93157;
+  font-family: "Chewy", cursive;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  text-align: center;
+}

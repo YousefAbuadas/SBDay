@@ -1,45 +1,45 @@
-import { useEffect, useState } from "react";
-import presentArt from "./present.svg";
+import Challenge from "../Challenge/Challenge.tsx";
+import Letter from "../Letter/Letter.tsx";
+import Media from "../Media/Media.tsx";
+import PresentButton from "./PresentButton.tsx";
+import usePresentSequence from "./usePresentSequence.ts";
 import "./styles.css";
-// add type checking here
 
-const CLICKS_TO_OPEN = 10;
-const SHAKE_DURATION = 620;
+const presents = [
+  { id: "letter", title: "Click to get your present!", Content: Letter },
+  { id: "media", title: "Here is another!", Content: Media },
+  { id: "challenge", title: "One more: but you have to win to get the final prize!", Content: Challenge },
+] as const;
 
 export default function Present() {
-  const [count, setCount] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (count !== CLICKS_TO_OPEN) return;
-
-    const timeout = window.setTimeout(() => setIsOpen(true), SHAKE_DURATION);
-    return () => window.clearTimeout(timeout);
-  }, [count]);
+  const { currentIndex, isOpen, clickCount, clicksRemaining, shake } =
+    usePresentSequence(presents.length);
+  const visiblePresents = presents.slice(0, currentIndex + 1);
 
   return (
     <section className="present-section">
-      {isOpen ? (
-        <div className="present-surprise" role="status">PRESENT!!!</div>
-      ) : (
-        <button
-          className="present-button"
-          type="button"
-          aria-label={`Shake the present. ${Math.max(0, CLICKS_TO_OPEN - count)} clicks until it opens.`}
-          onClick={() => setCount((current) => Math.min(current + 1, CLICKS_TO_OPEN))}
-        >
-          <img
-            key={count}
-            className={count > 0 ? "present-image present-image--shaking" : "present-image"}
-            src={presentArt}
-            alt=""
-            draggable="false"
-          />
-        </button>
-      )}
-      <span className="present-progress" aria-live="polite">
-        {isOpen ? "The present is open!" : `${count} of ${CLICKS_TO_OPEN} shakes`}
-      </span>
+      <div className="present-contents">
+        {visiblePresents.map((present, index) => {
+          const isCurrentPresent = index === currentIndex;
+          const PresentContent = present.Content;
+
+          return (
+            <div key={present.id}>
+              <h2>{present.title}</h2>
+              {isCurrentPresent && !isOpen ? (
+                <PresentButton
+                  name={present.id}
+                  clickCount={clickCount}
+                  clicksRemaining={clicksRemaining}
+                  onShake={shake}
+                />
+              ) : (
+                <PresentContent />
+              )}
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }
