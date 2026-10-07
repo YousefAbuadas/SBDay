@@ -1,4 +1,4 @@
-import presentArt from "./present.svg";
+import presentArt from "../../assets/present.svg";
 
 type PresentButtonProps = {
   name: string;

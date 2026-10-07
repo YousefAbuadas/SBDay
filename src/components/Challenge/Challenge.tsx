@@ -1,5 +1,5 @@
 import { link } from "../../data/MediaData.tsx";
-import bow from "./bow.svg";
+import bow from "../../assets/bow.svg";
 import "./styles.css";
 
 export default function Challenge() {
