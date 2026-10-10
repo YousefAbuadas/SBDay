@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("../../assets/PatrickHand-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .letter-section {
   box-sizing: border-box;
   width: 100%;
@@ -16,7 +24,7 @@
   margin: 0 auto;
   padding-block: 62px 64px;
   color: #292b2d;
-  font: 17px/var(--line-height) Arial, Helvetica, sans-serif;
+  font: 22px/var(--line-height) "Patrick Hand", "Segoe Print", "Bradley Hand", cursive;
   text-align: left;
   background-color: #fffefa;
   background-image:
@@ -55,7 +63,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #f3f4f2;
+  background: #f3abc2;
   box-shadow: inset 1px 1px 3px rgba(68, 83, 88, .38), 1px 1px 2px rgba(68, 83, 88, .15);
   transform: translate(-50%, -50%);
 }
@@ -72,7 +80,7 @@
   .letter-paper {
     --line-height: 25px;
     padding-block: 52px 50px;
-    font-size: 14px;
+    font-size: 18px;
     background-image:
       linear-gradient(to right, transparent calc(var(--margin-line) - 1px), rgba(192, 91, 96, .53) var(--margin-line), transparent calc(var(--margin-line) + 1px)),
       repeating-linear-gradient(to bottom, transparent 0, transparent 23px, rgba(108, 179, 206, .45) 24px, transparent 25px);

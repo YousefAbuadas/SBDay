@@ -10,7 +10,7 @@ export default function Letter(){
                 <span className="letter-paper__hole letter-paper__hole--bottom" aria-hidden="true" />
                 <div className="letter-paper__content">
                     <h2>Dear {letter.recipient},</h2>
-                    <p className="letter-paper__body">{letter.body}</p>
+                    <p className="letter-paper__body"><br />{letter.body}</p>
                     <p className="letter-paper__closing">Love,<br />{letter.signature}</p>
                 </div>
             </article>
